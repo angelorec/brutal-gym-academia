@@ -13,10 +13,10 @@ const Gallery: React.FC = () => {
   return (
     <div className="bg-white py-8 md:py-12 border-b-4 border-black overflow-hidden" id="gallery">
       <div className="flex gap-4 md:gap-6 animate-marquee-slow w-max px-4 md:px-6 hover:[animation-play-state:paused]">
-        {/* Double the array for seamless infinite loop */}
+        {/* Double the array for seamless infinite loop with translateX(-50%) */}
         {[...galleryImages, ...galleryImages].map((imgSrc, index) => (
           <div key={index} className="w-64 h-48 md:w-80 md:h-60 bg-gray-200 border-4 border-black rounded-xl overflow-hidden shrink-0 relative group">
-            <div 
+            <div
               className="absolute inset-0 bg-cover bg-center grayscale group-hover:grayscale-0 transition-all duration-500 transform group-hover:scale-110"
               style={{ backgroundImage: `url('${imgSrc}')` }}
             ></div>
