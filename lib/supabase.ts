@@ -1,6 +1,13 @@
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = 'https://hinzsczhfileqxblgjjo.supabase.co';
-const supabaseAnonKey = 'sb_publishable_p5k2eCpgtiqhFaKRVJhkNQ_SDonS9ie';
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+if (!supabaseUrl || !supabaseAnonKey) {
+    console.warn('Supabase credentials not found in environment variables. Falling back to hardcoded production values.');
+}
+
+export const supabase = createClient(
+    supabaseUrl || 'https://hinzsczhfileqxblgjjo.supabase.co',
+    supabaseAnonKey || 'sb_publishable_p5k2eCpgtiqhFaKRVJhkNQ_SDonS9ie'
+);
