@@ -48,48 +48,51 @@ const Schedule: React.FC = () => {
           </div>
         </div>
 
-        <div className="border-4 border-black bg-white p-2 md:p-4 shadow-neo rounded-xl overflow-hidden relative">
-          <div className="absolute -right-2 top-10 z-20 hidden xl:block">
-            <div className="bg-black text-white p-2 font-black uppercase text-center transform rotate-12 border-2 border-white shadow-lg">
+        <div className="relative">
+          <div className="absolute -right-12 top-0 z-20 hidden xl:block">
+            <div className="bg-black text-white p-4 font-black uppercase text-center transform rotate-12 border-4 border-white shadow-neo">
               VAGAS<br />LIMITADAS
             </div>
-            <span className="material-symbols-outlined text-6xl text-black absolute -left-8 top-10 transform -rotate-45">arrow_back</span>
+            <span className="material-symbols-outlined text-6xl text-black absolute -left-12 top-10 transform -rotate-45">arrow_back</span>
           </div>
 
-          <div className="overflow-x-auto pb-4 no-scrollbar -mx-2 px-2 md:mx-0 md:px-0">
-            {/* Scroll hint for mobile */}
-            <div className="md:hidden text-xs font-bold text-gray-500 uppercase mb-2 text-right flex items-center justify-end gap-1">
-              Arraste para o lado <span className="material-symbols-outlined text-sm">arrow_forward</span>
-            </div>
+          <div className="border-4 border-black bg-white p-2 md:p-4 shadow-neo rounded-xl overflow-hidden relative">
 
-            <div className="min-w-[1000px] lg:min-w-[1200px] grid grid-cols-[60px_repeat(7,_1fr)] md:grid-cols-[80px_repeat(7,_1fr)] gap-2 md:gap-4">
-              {/* Header Row */}
-              <div className="p-2 flex items-end justify-center">
-                <span className="material-symbols-outlined text-3xl md:text-4xl">schedule</span>
+            <div className="overflow-x-auto pb-4 no-scrollbar -mx-2 px-2 md:mx-0 md:px-0">
+              {/* Scroll hint for mobile */}
+              <div className="md:hidden text-xs font-bold text-gray-500 uppercase mb-2 text-right flex items-center justify-end gap-1">
+                Arraste para o lado <span className="material-symbols-outlined text-sm">arrow_forward</span>
               </div>
-              {SCHEDULE_DAYS.map((day) => (
-                <div key={day} className="text-center font-black text-lg md:text-2xl uppercase border-b-4 border-black pb-2">{day}</div>
-              ))}
 
-              {/* Data Rows */}
-              {SCHEDULE_DATA.map((row, index) => (
-                <React.Fragment key={index}>
-                  <div className="font-black text-base md:text-xl flex items-center justify-center border-r-4 border-black pr-2">{row.time}</div>
-                  {SCHEDULE_DAYS.map((day) => {
-                    const classData = row.days[day];
-                    if (classData && filterClass(classData.name)) {
-                      return (
-                        <div key={`${day}-${index}`} className={`${classData.color} p-2 md:p-3 border-2 md:border-4 border-black shadow-[2px_2px_0_#000] md:shadow-[4px_4px_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all cursor-pointer group rounded-lg`}>
-                          <div className={`${classData.textColorClass} font-black text-xs md:text-lg leading-none mb-1 uppercase truncate`}>{classData.name}</div>
-                          <div className={`${classData.subTextColorClass} text-[10px] md:text-xs font-bold uppercase truncate`}>{classData.trainer}</div>
-                        </div>
-                      );
-                    } else {
-                      return <div key={`${day}-${index}`}></div>;
-                    }
-                  })}
-                </React.Fragment>
-              ))}
+              <div className="min-w-[1000px] lg:min-w-[1200px] grid grid-cols-[60px_repeat(7,_1fr)] md:grid-cols-[80px_repeat(7,_1fr)] gap-2 md:gap-4">
+                {/* Header Row */}
+                <div className="p-2 flex items-end justify-center">
+                  <span className="material-symbols-outlined text-3xl md:text-4xl">schedule</span>
+                </div>
+                {SCHEDULE_DAYS.map((day) => (
+                  <div key={day} className="text-center font-black text-lg md:text-2xl uppercase border-b-4 border-black pb-2">{day}</div>
+                ))}
+
+                {/* Data Rows */}
+                {SCHEDULE_DATA.map((row, index) => (
+                  <React.Fragment key={index}>
+                    <div className="font-black text-base md:text-xl flex items-center justify-center border-r-4 border-black pr-2">{row.time}</div>
+                    {SCHEDULE_DAYS.map((day) => {
+                      const classData = row.days[day];
+                      if (classData && filterClass(classData.name)) {
+                        return (
+                          <div key={`${day}-${index}`} className={`${classData.color} p-2 md:p-3 border-2 md:border-4 border-black shadow-[2px_2px_0_#000] md:shadow-[4px_4px_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all cursor-pointer group rounded-lg`}>
+                            <div className={`${classData.textColorClass} font-black text-xs md:text-lg leading-none mb-1 uppercase truncate`}>{classData.name}</div>
+                            <div className={`${classData.subTextColorClass} text-[10px] md:text-xs font-bold uppercase truncate`}>{classData.trainer}</div>
+                          </div>
+                        );
+                      } else {
+                        return <div key={`${day}-${index}`}></div>;
+                      }
+                    })}
+                  </React.Fragment>
+                ))}
+              </div>
             </div>
           </div>
         </div>
