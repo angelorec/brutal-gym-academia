@@ -28,6 +28,14 @@ const Schedule: React.FC = () => {
             <div className="absolute -top-4 -left-4 md:-top-6 md:-left-6 text-6xl md:text-9xl text-accent-yellow opacity-100 rotate-12 z-0 pointer-events-none">
               <span className="material-symbols-outlined text-[80px] md:text-[120px] font-black drop-shadow-[4px_4px_0_#000] text-accent-yellow text-stroke-3 select-none">star</span>
             </div>
+
+            {/* Vagas Limitadas Badge - Moved here to be outside the table */}
+            <div className="absolute -top-8 -right-8 md:-top-12 md:-right-20 z-20 animate-bounce-slow">
+              <div className="bg-black text-white p-2 md:p-3 font-black uppercase text-center transform rotate-12 border-4 border-white shadow-neo-sm text-[10px] md:text-xs">
+                VAGAS<br />LIMITADAS
+              </div>
+            </div>
+
             <h2 className="font-poppins text-4xl sm:text-6xl md:text-8xl font-black uppercase text-white italic tracking-tighter relative z-10 transform -rotate-2 drop-shadow-[4px_4px_0_#000] md:drop-shadow-[6px_6px_0_#000] text-stroke-3">
               Grade de<br />Horários
             </h2>
@@ -49,13 +57,6 @@ const Schedule: React.FC = () => {
         </div>
 
         <div className="relative">
-          <div className="absolute -right-12 top-0 z-20 hidden xl:block">
-            <div className="bg-black text-white p-4 font-black uppercase text-center transform rotate-12 border-4 border-white shadow-neo">
-              VAGAS<br />LIMITADAS
-            </div>
-            <span className="material-symbols-outlined text-6xl text-black absolute -left-12 top-10 transform -rotate-45">arrow_back</span>
-          </div>
-
           <div className="border-4 border-black bg-white p-2 md:p-4 shadow-neo rounded-xl overflow-hidden relative">
 
             <div className="overflow-x-auto pb-4 no-scrollbar -mx-2 px-2 md:mx-0 md:px-0">
